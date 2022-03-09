@@ -1,0 +1,33 @@
+{
+  "name": "pokeseedroute",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.13.2"
+  },
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srikemburu/pokeSeedRoute.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srikemburu/pokeSeedRoute/issues"
+  },
+  "homepage": "https://github.com/srikemburu/pokeSeedRoute#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-react-views": "^0.11.0",
+    "mongoose": "^6.2.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
