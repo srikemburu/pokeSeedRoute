@@ -28,6 +28,42 @@ app.use(express.static('public')); //tells express to try to match requests with
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
+app.get('/pokemon/seed', (req, res)=>{
+  pokemon.create([
+      {
+          pokeName:'bulbasaur',
+          imageURL:'http://img.pokemondb.net/artwork/bulbasaur',
+      },
+      {
+          pokeName:'ivysaur',
+          imageURL:'http://img.pokemondb.net/artwork/ivysaur',
+      },
+      {
+          pokeName:'venusaur',
+          imageURL:'http://img.pokemondb.net/artwork/venusaur',
+      },
+      {
+          pokeName:'charmander',
+          imageURL:'http://img.pokemondb.net/artwork/charmander',
+      },
+      {
+          pokeName:'charizard',
+          imageURL:'http://img.pokemondb.net/artwork/charizard',
+      },
+      {
+          pokeName:'squirtle',
+          imageURL:'http://img.pokemondb.net/artwork/squirtle',
+      },
+      {
+          pokeName:'wartortle',
+          imageURL:'http://img.pokemondb.net/artwork/wartortle',
+      }
+  ], (err, data)=>{
+      res.redirect('/pokemon');
+  })
+});
+
+
 app.get('/pokemon', function (req, res) {
   pokemon.find({}, (error, allPokemons) => {
     res.render('Index', {
