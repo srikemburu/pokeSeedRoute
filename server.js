@@ -95,14 +95,14 @@ app.get('/pokemon/:id', function(req, res){
     })
 })
 
-//delete pokemon
+//delete route
 app.delete('/pokemon/:id', (req, res)=>{
   pokemon.findByIdAndRemove(req.params.id, (err, data)=>{
       res.redirect('/pokemon');//redirect back to fruits index
   });
 });
 
-//edit pokemon
+//edit route
 app.get('/pokemon/:id/edit', (req, res)=>{ // getting the form prepopulated to edit the fruit
   pokemon.findById(req.params.id, (err, foundPokemon)=>{ //find the pokemon
     if(!err){
@@ -118,7 +118,7 @@ app.get('/pokemon/:id/edit', (req, res)=>{ // getting the form prepopulated to e
   });
 });
 
-//update pokemon
+//update route
 app.put('/pokemon/:id', (req, res)=>{
   pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
   res.redirect('/pokemon');
