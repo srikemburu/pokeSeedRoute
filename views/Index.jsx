@@ -22,7 +22,8 @@ const buttonStyle = {
           return (
                     <div style={myStyle}>
                       <h1>Pokemon Index</h1>
-                      <ul>
+
+                       <ul>
                           {pokemon.map((poke, i) => {
                               return (
                                   <li> 
@@ -32,7 +33,8 @@ const buttonStyle = {
                                   </li>
                               );
                           })}
-                      </ul>
+                      </ul> 
+
                       <nav>
                         <a href="/pokemon/new">   
                             <button style={buttonStyle}>Create a New Pokemon</button>
