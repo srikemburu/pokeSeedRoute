@@ -4,6 +4,8 @@ class New extends React.Component {
   render() {
     return (
     <div>
+      <link rel="stylesheet" href="/css/app.css"/> 
+      <link rel="stylesheet" href="/css/app.html"/> 
     <h1>New Pokemon page</h1>
     {/* NOTE: action will be the route, method will be the HTTP verb */}
     <form action="/pokemon" method="POST">

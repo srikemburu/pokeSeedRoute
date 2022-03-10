@@ -67,7 +67,7 @@ app.get('/pokemon/seed', (req, res)=>{
   })
 });
 
-
+// render pokemon index page
 app.get('/pokemon', function (req, res) {
   pokemon.find({}, (error, allPokemons) => {
     res.render('Index', {
@@ -95,16 +95,14 @@ app.get('/pokemon/:id', function(req, res){
     })
 })
 
-// app.delete('/pokemon/:id', (req, res)=>{
-//   res.send('deleting...');
-// });
-
+//delete pokemon
 app.delete('/pokemon/:id', (req, res)=>{
   pokemon.findByIdAndRemove(req.params.id, (err, data)=>{
       res.redirect('/pokemon');//redirect back to fruits index
   });
 });
 
+//edit pokemon
 app.get('/pokemon/:id/edit', (req, res)=>{ // getting the form prepopulated to edit the fruit
   pokemon.findById(req.params.id, (err, foundPokemon)=>{ //find the pokemon
     if(!err){
@@ -120,23 +118,14 @@ app.get('/pokemon/:id/edit', (req, res)=>{ // getting the form prepopulated to e
   });
 });
 
+//update pokemon
 app.put('/pokemon/:id', (req, res)=>{
-  
-  //  res.send(req.body);
-
-//  pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
-//    res.send(updatedModel);
-//  });
-
-pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+  pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
   res.redirect('/pokemon');
+  });
 });
 
-});
-
-
-
-  //connect to mongo database
+//connect to mongo database
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo')

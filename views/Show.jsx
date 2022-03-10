@@ -1,13 +1,15 @@
 // Import the express library here
 const React = require('react')
 
+// const DefaultLayout = require('./layout/Default.jsx')
+
 const buttonStyle = {
   background: 'pink',
-  width : '15%',
+  width : '10%',
   display : 'block',
   color : 'red',
   font : '50px',
-  margin : '30px',
+  margin : '10px',
   padding : '10px 20px',
   border: '4px solid black',
 }
@@ -15,27 +17,31 @@ const buttonStyle = {
 class Show extends React.Component {
    render () {
     const { pokemon } = this.props;
-
-    return (
+    return (   
       <div>
-        <h1> Gotta Catch 'Em All </h1> 
+        <link rel="stylesheet" href="/css/app.css"/> 
+        {/* <link rel="stylesheet" href="/css/app.html"/>  */}
+        <h1> Show Page </h1> 
         <h2>{pokemon.pokeName.charAt(0).toUpperCase() + pokemon.pokeName.slice(1)}</h2>
         <img src={pokemon.imageURL + ".jpg"}  width="200" height="200"></img>
         <br></br>
         <br></br>
         <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
-              <input type="submit" value="DELETE"/>
+              <input type="submit" value="Delete Pokemon"/>
         </form>
-        <a href={`/pokemon/${pokemon._id}/edit`}>Edit This Pokemon</a>
-        <br/><br/>
+        <br/>
 
-        {/* <nav>
+        <nav>
+            <a href={`/pokemon/${pokemon._id}/edit`}>  
+                  <button>Edit This Pokemon</button>
+            </a>
+        </nav>
+
+        <nav>
             <a href="/pokemon">
                 <button style={buttonStyle}>Back</button>
-                <br></br>
-                <br></br>
             </a>    
-        </nav> */}
+        </nav>
       </div>
       );
     }

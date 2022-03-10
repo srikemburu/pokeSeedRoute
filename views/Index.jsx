@@ -19,10 +19,9 @@ const buttonStyle = {
     class Index extends React.Component {
       render() {
           const { pokemon } = this.props;
-          return (
+          return (              
                     <div style={myStyle}>
                       <h1>Pokemon Index</h1>
-
                        <ul>
                           {pokemon.map((poke, i) => {
                               return (
